@@ -117,7 +117,9 @@ class SortingRobot:
             while (self.can_move_left() == True) and (self.compare_item() != None):
                 # print(f'Left Item: {self._item}, {self._position}')
                 self.move_left()
+            #pick up item
             self.swap_item()
+            #advance to next
             self.move_right()
 
 if __name__ == "__main__":
