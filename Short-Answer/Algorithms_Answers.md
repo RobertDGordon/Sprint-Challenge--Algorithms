@@ -20,4 +20,27 @@ c) O(n)
 
 ## Exercise II
 
+Take in n stories (100)
+    set floor = 0
+    define function test_egg_break parsing floors into array([0:100])
+        set base case to if stories are less than 2
+        divide stories in half (bottom half = [0:50], top half = [51:100])
+            find top_middle_index of top half (top half = 75)
+            find bottom_middle_index of bottom half (bottom half = 25)
+            test if egg will break top_middle_index (75)
+                if egg breaks
+                    test if egg breaks on bottom_middle_index (25)
+                        if egg breaks
+                            recursively call function test_egg_break sending new array [bottom(0):bottom_middle_index-1(24)] 
+                        else if egg doesn't break (25)
+                            set floor = 25
+                            recurisively call function test_egg_break sending
+                            new array [bottom_middle_index+1(26):top_middle_index-1(74)]
+                else if egg doesn't break (75)
+                    set floor = 75
+                        recurisively call function test_egg_break sending new array [top_middle_index+1(76):top(100)]
+    return floor
 
+    Time complexity: O(log n) as input size grows, runtime increases slowly/logarithmically . It's essentially a binary search tree, dividing in half each time.
+
+    Space complexity: 0(n) as input size grows, space needed to run increases at a linear rate.
