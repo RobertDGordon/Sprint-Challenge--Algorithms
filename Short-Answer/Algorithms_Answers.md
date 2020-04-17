@@ -5,8 +5,11 @@ a) O(n)
     Linear run time, as input size grows, the loop will run longer at a constant rate.
 
 
-b) O(n^2)
-    Loop within a loop, quadratic (polynomial), as input size grows runtime rate increases.  Only good for small inputs, does not scale for very large input.
+b) O(n (log n))
+    Outer loop is O(n), linear.  Inner loop is O(log n), diminishing iterations by half (j *= 2).  First answer was O(n^2) because I didn't consider the inner loop being cut in half.
+
+<!-- O(n^2)
+    Loop within a loop, quadratic (polynomial), as input size grows runtime rate increases.  Only good for small inputs, does not scale for very large input. -->
 
 
 c) O(n)
